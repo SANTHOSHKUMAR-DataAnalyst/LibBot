@@ -69,7 +69,7 @@ if user_input:
 
 
     if results:
-        total = select count(*) from books;
+        total = "select count(*) from books;"
         st.write = fetch_data(total)
         st.write("Location of the Book")
         
