@@ -70,7 +70,7 @@ if user_input:
 
     if results:
         st.write("Location of the Book")
-        df = pd.DataFrame(results, columns=["Title","Author","Rack", "Shelf"])
+        df = pd.DataFrame(results, columns=["Title","Author","Rack", "Shelf", "image"])
         st.table(df)
     else:
         st.write("Currently Unavailable")
