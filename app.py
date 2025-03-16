@@ -70,7 +70,8 @@ if user_input:
 
     if results:
         total = "select count(*) from books;"
-        st.write = fetch_data(total)
+        count = fetch_data(total)
+        st.write(f"Total Number Of Books : {count}")
         st.write("Location of the Book")
         
         df = pd.DataFrame(results, columns=["Title","Author","Rack", "Shelf"])
