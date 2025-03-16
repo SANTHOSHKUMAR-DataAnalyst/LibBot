@@ -18,12 +18,6 @@ def connect_to_db():
     )
     return conn
 
-@st.cache_data(ttl=60)
-def fetch_all_titles():
-    query = "SELECT title FROM books;"
-    results = fetch_data(query)
-    return [row[0] for row in results]
-
 # Function to execute a query and fetch data
 def fetch_data(query):
     conn = connect_to_db()
@@ -54,7 +48,7 @@ def update_database(df):
     # Insert new data
     for _, row in df.iterrows():
         insert_query = """
-        INSERT INTO books (title, author, year, rack, shelf)
+        INSERT INTO books (title, author, year, rack, shelf, image)
         VALUES (%s, %s, %s, %s, %s);
         """
         cursor.execute(insert_query, tuple(row))
