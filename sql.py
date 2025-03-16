@@ -48,7 +48,7 @@ def update_database(df):
     # Insert new data
     for _, row in df.iterrows():
         insert_query = """
-        INSERT INTO books (title, author, year, rack, shelf, image)
+        INSERT INTO books (title, author, year, rack, shelf)
         VALUES (%s, %s, %s, %s, %s);
         """
         cursor.execute(insert_query, tuple(row))
