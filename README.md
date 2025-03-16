@@ -1,4 +1,5 @@
 # ⚡LibBot
+![Uploading image.png…]()
 
 ➥ Project Overview
 This project is designed to manage and monitor data dynamically from multiple sources, such as Excel files and a PostgreSQL database, while providing a user-friendly interface for interaction. It integrates database management, real-time file monitoring, and a web-based user interface to create a seamless experience for users who need to handle and update data efficiently.
