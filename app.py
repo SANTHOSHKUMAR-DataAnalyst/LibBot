@@ -61,6 +61,13 @@ set_gradient_background()
 
 st.title("Library Assistant ChatBot")
 user_input = st.text_input("Enter Book Title Here : ")
+
+count_query = "SELECT COUNT(*) FROM books;"
+# Fetch the total number of books
+total_books = fetch_data(count_query)
+
+if total_books:
+    st.write(f"Total number of books: {total_books[0][0]}") 
 st.button("Submit")
 
 if user_input:
@@ -69,11 +76,7 @@ if user_input:
 
 
     if results:
-        total = "select count(*) from books;"
-        count = fetch_data(total)
-        st.write(f"Total Number Of Books : {count}")
         st.write("Location of the Book")
-        
         df = pd.DataFrame(results, columns=["Title","Author","Rack", "Shelf"])
         st.dataframe(df)
     else:
