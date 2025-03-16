@@ -61,6 +61,8 @@ set_gradient_background()
 
 st.title("Library Assistant ChatBot")
 user_input = st.text_input("Enter Book Title Here : ")
+total = "select count(*) from books;"
+st.write = fetch_data(total)
 st.button("Submit")
 
 if user_input:
