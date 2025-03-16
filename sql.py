@@ -5,22 +5,16 @@ import streamlit as st
 
 # Load environment variables
 load_dotenv()
-# Access secrets
-DB_HOST = st.secrets["DB_HOST"]
-DB_NAME = st.secrets["DB_NAME"]
-DB_USER = st.secrets["DB_USER"]
-DB_PASSWORD = st.secrets["DB_PASSWORD"]
-DB_PORT = st.secrets["DB_PORT"]
 
-# Connect to the database
+# Function to connect to PostgreSQL
 def connect_to_db():
     conn = psycopg2.connect(
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        host=DB_HOST,
-        port=DB_PORT,
-        sslmode="require"  # Enable SSL
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        sslmode="require"
     )
     return conn
 
